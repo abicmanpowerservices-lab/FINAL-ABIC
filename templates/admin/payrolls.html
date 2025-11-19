@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <h3>Payrolls</h3>
+  <a class="btn btn-success" href="{{ url_for('admin_add_payroll') }}">Add Payroll</a>
+</div>
+<table class="table table-sm">
+  <thead><tr><th>#</th><th>Employee</th><th>Period</th><th>Netpay</th></tr></thead>
+  <tbody>
+    {% for p in payrolls %}
+      <tr><td>{{p.id}}</td><td>{{ employees[p.employee_id].full_name if p.employee_id in employees else p.employee_id }}</td><td>{{p.period}}</td><td>{{p.netpay}}</td></tr>
+    {% else %}
+      <tr><td colspan=4>No payrolls yet</td></tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

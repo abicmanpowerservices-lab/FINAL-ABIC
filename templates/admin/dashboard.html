@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="row">
+  <div class="col-md-3">
+    <div class="card p-3 text-white bg-primary mb-3">
+      <h5>Total Employees</h5><div class="h3">{{ total_employees }}</div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="card p-3 text-white bg-success mb-3">
+      <h5>Total Payrolls</h5><div class="h3">{{ total_payrolls }}</div>
+    </div>
+  </div>
+</div>
+
+<h5 class="mt-4">Recent Payrolls</h5>
+<table class="table table-sm table-striped">
+  <thead><tr><th>#</th><th>Employee</th><th>Period</th><th>Netpay</th></tr></thead>
+  <tbody>
+    {% for p in recent %}
+      <tr><td>{{p.id}}</td><td>{{ p.employee_id }}</td><td>{{p.period}}</td><td>{{p.netpay}}</td></tr>
+    {% else %}
+      <tr><td colspan=4>No payrolls yet</td></tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

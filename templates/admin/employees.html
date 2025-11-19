@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <h3>Employees</h3>
+  <a class="btn btn-success" href="{{ url_for('admin_add_employee') }}">Add Employee</a>
+</div>
+<table class="table table-sm table-hover">
+  <thead><tr><th>#</th><th>Name</th><th>Email</th></tr></thead>
+  <tbody>
+    {% for u in users %}
+      <tr><td>{{u.id}}</td><td>{{u.full_name}}</td><td>{{u.email}}</td></tr>
+    {% else %}
+      <tr><td colspan=3>No employees</td></tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

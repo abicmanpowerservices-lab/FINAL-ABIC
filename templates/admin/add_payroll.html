@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{% block content %}
+<h3>Add Payroll Entry</h3>
+<form method="post">
+  <div class="mb-2"><label>Employee</label>
+    <select name="employee_id" class="form-select">
+      {% for e in employees %}<option value="{{e.id}}">{{e.full_name}} ({{e.email}})</option>{% endfor %}
+    </select></div>
+  <div class="mb-2"><label>Period</label><input name="period" class="form-control"></div>
+  <div class="row">
+    <div class="col-md-4"><label>Monthly Base</label><input name="monthly_base" class="form-control" type="number" step="0.01"></div>
+    <div class="col-md-4"><label>Total Earnings</label><input name="total_earnings" class="form-control" type="number" step="0.01"></div>
+    <div class="col-md-4"><label>Total Deductions</label><input name="total_deductions" class="form-control" type="number" step="0.01"></div>
+  </div>
+  <div class="mb-2"><label>Netpay</label><input name="netpay" class="form-control" type="number" step="0.01"></div>
+  <button class="btn btn-primary mt-2">Save</button>
+</form>
+{% endblock %}
