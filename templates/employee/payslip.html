@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="card p-4">
+  <div class="d-flex justify-content-between">
+    <div>
+      <h4>ABIC Manpower</h4>
+      <div class="text-muted">Payslip for: <strong>{{ p.period }}</strong></div>
+      <div class="small">Employee: <strong>{{ employee.full_name }}</strong></div>
+    </div>
+    <div class="text-end mono">Payroll #{{ p.id }}<br>{{ p.created_at.date() }}</div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col-md-6">
+      <h6>Earnings</h6>
+      <table class="table table-borderless">
+        <tr><td>Monthly base</td><td class="text-end">{{ p.monthly_base }}</td></tr>
+        <tr><th>Total earnings</th><th class="text-end">{{ p.total_earnings }}</th></tr>
+      </table>
+    </div>
+    <div class="col-md-6">
+      <h6>Deductions</h6>
+      <table class="table table-borderless">
+        <tr><td>Total deductions</td><td class="text-end">{{ p.total_deductions }}</td></tr>
+        <tr><th>Total deductions</th><th class="text-end">{{ p.total_deductions }}</th></tr>
+      </table>
+    </div>
+  </div>
+  <hr>
+  <div class="d-flex justify-content-between align-items-center">
+    <div><strong>Net pay</strong></div>
+    <div class="h4 mono">PHP {{ p.netpay }}</div>
+  </div>
+</div>
+{% endblock %}

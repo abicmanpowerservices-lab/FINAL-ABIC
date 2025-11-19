@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+{% block content %}
+<h3>Your Payslips</h3>
+<table class="table">
+  <thead><tr><th>#</th><th>Period</th><th>Netpay</th><th></th></tr></thead>
+  <tbody>
+    {% for p in payrolls %}
+      <tr><td>{{p.id}}</td><td>{{p.period}}</td><td>{{p.netpay}}</td><td><a class="btn btn-sm btn-primary" href="{{ url_for('employee_payslip', payroll_id=p.id) }}">View</a></td></tr>
+    {% else %}
+      <tr><td colspan=4>No payslips yet</td></tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
