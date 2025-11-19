@@ -1,0 +1,10 @@
+body{background:#071227;color:#e6eef8}
+#sidebar{width:220px;min-height:100vh;background:#060b12}
+#page-content{flex:1;background:#071227}
+#sidebar.collapsed{width:70px}
+.sidebar-header{background:#082033}
+a{color:#9ed3ff}
+.card{background:#071a2a;border:0}
+.table{color:#e6eef8}
+.alert{margin-top:8px}
+.mono{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", monospace}
